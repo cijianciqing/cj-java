@@ -13,7 +13,7 @@ class MyData {
 }
 
 /**
- * 验证volatile的可见性
+ * 验证volatile的可见性a
  * 1.当number未被volatile修饰时，new Thread将number值改为60，但main线程并不知道，会一直在循环中出不来
  * 2.当number使用volatile修饰，new Thread改变number值后，会通知main线程主内存的值已被修改，结束任务。体现了可见性
  */
