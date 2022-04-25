@@ -1,7 +1,7 @@
 package cj.java.singleton;
 
 public class SingletonLazy {
-    private static SingletonLazy singletonLazy;
+    private static volatile SingletonLazy singletonLazy;
     private SingletonLazy(){
 
     }
