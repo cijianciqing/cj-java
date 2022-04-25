@@ -6,6 +6,7 @@ public class SingletonLazy {
 
     }
 
+    //DCL(Double Check Lock)双端加锁机制
     public static SingletonLazy getSingletonLazy(){
         synchronized (SingletonLazy.class){
             if (singletonLazy==null){
