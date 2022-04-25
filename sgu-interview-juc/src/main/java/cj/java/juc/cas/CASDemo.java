@@ -3,7 +3,7 @@ package cj.java.juc.cas;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 1.CAS是什么？    -->compareAndSet
+ * 1.CAS是什么？    -->compare And Swap
  * 比较并交换
  */
 public class CASDemo {
