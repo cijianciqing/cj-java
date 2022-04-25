@@ -5,21 +5,25 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 class MyData {
     volatile int number = 0;
+    AtomicInteger atomicInteger = new AtomicInteger();
 
     public void addTo60() {
         this.number = 60;
     }
 
     /*
-    * 用于验证 jvm的原子性操作
-    * 方法添加synchronized关键字后，得到想要的结果-->20000
-    * */
-    public   void addPlusPlus() {
+     * 用于验证 jvm的原子性操作
+     * 方法添加synchronized关键字后，得到想要的结果-->20000
+     * */
+    public void addPlusPlus() {
         this.number++;
     }
 
-
+    public void addAtomic() {
+        atomicInteger.getAndIncrement();
+    }
 }
+
 
 /**
  * 验证volatile的可见性a
@@ -67,6 +71,7 @@ public class VolatileDemo {
                 public void run() {
                     for (int j = 1; j <= 1000; j++) {
                         myData.addPlusPlus();
+                        myData.addAtomic();
                     }
                 }
             }).start();
@@ -78,6 +83,8 @@ public class VolatileDemo {
         }
         //如果是原子性，则最终结果应为20000
         System.out.println(Thread.currentThread().getName() + "int finally number is " + myData.number);
+        System.out.println(Thread.currentThread().getName() + "AtomicInterger finally number is " + myData.atomicInteger);
+
     }
 }
          
