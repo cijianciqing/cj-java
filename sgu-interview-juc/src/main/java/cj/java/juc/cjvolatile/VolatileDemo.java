@@ -10,6 +10,15 @@ class MyData {
         this.number = 60;
     }
 
+    /*
+    * 用于验证 jvm的原子性操作
+    * 方法添加synchronized关键字后，得到想要的结果-->20000
+    * */
+    public   void addPlusPlus() {
+        this.number++;
+    }
+
+
 }
 
 /**
@@ -19,7 +28,8 @@ class MyData {
  */
 public class VolatileDemo {
     public static void main(String[] args) {
-        seeByVolatile();
+//        seeByVolatile();
+        atomic();
     }
 
     //验证可见性的方法
@@ -45,6 +55,29 @@ public class VolatileDemo {
         }
 
         System.out.println(Thread.currentThread().getName() + "mission is over");
+    }
+
+
+    //验证原子性
+    public static void atomic() {
+        MyData myData = new MyData();
+        for (int i = 1; i <= 20; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int j = 1; j <= 1000; j++) {
+                        myData.addPlusPlus();
+                    }
+                }
+            }).start();
+        }
+
+        //等待上面20个线程全部计算结束
+        while (Thread.activeCount() > 2) {
+            Thread.yield();
+        }
+        //如果是原子性，则最终结果应为20000
+        System.out.println(Thread.currentThread().getName() + "int finally number is " + myData.number);
     }
 }
          
