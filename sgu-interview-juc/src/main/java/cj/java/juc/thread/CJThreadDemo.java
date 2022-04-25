@@ -1,4 +1,4 @@
-package cj.java.thread;
+package cj.java.juc.thread;
 
 public class CJThreadDemo {
     public static void main(String[] args) {

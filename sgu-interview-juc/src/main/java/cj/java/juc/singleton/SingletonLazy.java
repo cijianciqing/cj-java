@@ -1,4 +1,4 @@
-package cj.java.singleton;
+package cj.java.juc.singleton;
 
 public class SingletonLazy {
     private static volatile SingletonLazy singletonLazy;

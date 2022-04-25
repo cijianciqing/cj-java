@@ -1,4 +1,4 @@
-package cj.java.singleton;
+package cj.java.juc.singleton;
 
 
 import java.util.concurrent.ExecutionException;
