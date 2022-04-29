@@ -10,9 +10,9 @@ public class SingletonMain {
 
 
 
-//        SingletonHungry shinstance = SingletonHungry.SHINSTANCE;
-//        SingletonHungry shinstance2 = SingletonHungry.SHINSTANCE;
-//        System.out.println(shinstance == shinstance2);
+        SingletonHungry shinstance = SingletonHungry.SHINSTANCE;
+        SingletonHungry shinstance2 = SingletonHungry.SHINSTANCE;
+        System.out.println(shinstance == shinstance2);
 
 
        /* Thread thread1 = new Thread(() -> {

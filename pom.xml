@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>sgu-interview-juc</module>
+        <module>sgg-30d</module>
     </modules>
     <packaging>pom</packaging>
     <name>Maven</name>
